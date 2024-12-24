@@ -2,7 +2,7 @@
 
 > This repo is modified from [stm32-rs](https://github.com/stm32-rs/stm32-rs)
 
-[![CI](https://github.com/creatoy/py32-rs/workflows/CI/badge.svg?branch=master)](https://github.com/creatoy/py32-rs)
+[![CI](https://github.com/py32-rust/py32-rs/workflows/CI/badge.svg?branch=master)](https://github.com/py32-rust/py32-rs)
 [![crates.io](https://img.shields.io/crates/v/py32f0.svg?label=py32f0)](https://crates.io/crates/py32f0)
 
 This repository provides Rust device support crates for all py32
