@@ -1,0 +1,27 @@
+[tasks.crates]
+command = "make"
+args = ["crates"]
+
+[tasks.install]
+command = "make"
+args = ["install"]
+
+[tasks.patch]
+command = "make"
+args = ["patch"]
+
+[tasks.svd2rust]
+command = "make"
+args = ["svd2rust"]
+
+[tasks.form]
+command = "make"
+args = ["form"]
+
+[tasks.check]
+command = "make"
+args = ["check"]
+
+[tasks.clean]
+command = "make"
+args = ["clean"]
