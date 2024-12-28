@@ -16,7 +16,7 @@ import argparse
 import re
 import yaml
 
-VERSION = "0.1.1"
+VERSION = "0.2.0"
 SVD2RUST_VERSION = "0.28.0"
 
 CRATE_DOC_FEATURES = {
@@ -34,7 +34,7 @@ name = "{crate}"
 version = "{version}"
 authors = ["creatoy <creatoy@yeah.net>", "py32-rs Contributors"]
 description = "Device support crates for {family} devices"
-repository = "https://github.com/creatoy/py32-rs"
+repository = "https://github.com/py32-rust/py32-rs"
 readme = "README.md"
 keywords = ["py32", "svd2rust", "no_std", "embedded"]
 categories = ["embedded", "no-std"]
@@ -66,7 +66,7 @@ SRC_LIB_RS_TPL = """\
 //! [svd2rust/#peripheral-api](https://docs.rs/svd2rust/{svd2rust_version}/svd2rust/#peripheral-api)
 //!
 //! For more details see the README here:
-//! [py32-rs](https://github.com/creatoy/py32-rs)
+//! [py32-rs](https://github.com/py32-rust/py32-rs)
 //!
 //! This crate supports all {family} devices; for the complete list please
 //! see:
@@ -74,7 +74,7 @@ SRC_LIB_RS_TPL = """\
 //!
 //! Due to doc build limitations, not all devices may be shown on docs.rs;
 //! a representative few have been selected instead. For a complete list of
-//! available registers and fields see: [py32-rs Device Coverage](https://creatoy.github.io/py32-rs/)
+//! available registers and fields see: [py32-rs Device Coverage](https://py32-rust.github.io/py32-rs/)
 
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
@@ -95,7 +95,7 @@ extensive type-safe support. For more information please see the [main repo].
 Refer to the [documentation] for full details.
 
 [svd2rust]: https://github.com/rust-embedded/svd2rust
-[main repo]: https://github.com/creatoy/py32-rs
+[main repo]: https://github.com/py32-rust/py32-rs
 [documentation]: https://docs.rs/{crate}/latest/{crate}/
 
 ## Usage
