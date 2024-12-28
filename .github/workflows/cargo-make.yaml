@@ -48,7 +48,7 @@ jobs:
         run: cargo make form
 
       - name: Check PACs
-        run: cargo make check-patched
+        run: cargo make check
 
       - name: Clean up
-        run: cargo make clean-all
+        run: cargo make clean
