@@ -9,7 +9,28 @@ from a provided SVD file.
 
 import argparse
 import xml.etree.ElementTree as ET
+import re
 
+def get_field_offset_width(ftag):
+    # Some svd files will specify a bitRange rather than
+    # bitOffset and bitWidth
+    if ftag.find('bitRange') != None:
+        frange = ftag.find('bitRange').text
+        parts = frange[1:-1].split(':')
+        end = int(parts[0], 0)
+        start = int(parts[1], 0)
+        foffset = start
+        fwidth = end - start + 1
+    else:
+        # some svd files will specify msb,lsb rather
+        # then bitOffset and bitWidth
+        if ftag.find('msb') != None:
+            foffset = int(ftag.find('lsb').text, 0)
+            fwidth = int(ftag.find('msb').text, 0) - foffset + 1
+        else:
+            foffset = int(ftag.find('bitOffset').text, 0)
+            fwidth = int(ftag.find('bitWidth').text, 0)
+    return (foffset, fwidth)
 
 def parse_periph(svdfile, pname):
     tree = ET.parse(svdfile)
@@ -32,9 +53,8 @@ def parse_periph(svdfile, pname):
         roffset = int(rtag.find('addressOffset').text, 0)
         for ftag in rtag.iter('field'):
             fname = ftag.find('name').text
-            foffset = int(ftag.find('bitOffset').text, 0)
-            fwidth = int(ftag.find('bitWidth').text, 0)
-            fields[foffset] = {"name": fname, "width": fwidth}
+            foffset, fwidth = get_field_offset_width(ftag)
+            fields[foffset] = {"name": fname, "offset": foffset, "width": fwidth}
         registers[roffset] = {"name": rname, "fields": fields}
     return registers
 

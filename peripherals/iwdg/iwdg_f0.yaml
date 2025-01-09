@@ -17,7 +17,7 @@
   RLR:
     RL: [0, 4095]
   SR:
-    WVU:
+    ?~WVU:
       Idle: [0, "No update on-going"]
       Busy: [1, "Update on-going"]
     RVU:
@@ -26,5 +26,5 @@
     PVU:
       Idle: [0, "No update on-going"]
       Busy: [1, "Update on-going"]
-  WINR:
+  ?~WINR:
     WIN: [0, 4095]

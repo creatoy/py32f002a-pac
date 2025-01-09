@@ -1,0 +1,72 @@
+"COMP?":
+  CSR:
+    _modify:
+      COMP_OUT:
+        name: VALUE
+    VALUE:
+      _read:
+        Low: [0, "Comparator output is low"]
+        High: [1, "Comparator output is high"]
+    PWRMODE:
+      HighSpeed: [0, "High speed 250 ua"]
+      MediumSpeed: [1, "Medium speed 5 ua"]
+    HYST:
+      No: [0, "no Comp1 hysteresis"]
+      Yes: [1, "Comp1 hysteresis voltage approx 20mV"]
+    POLARITY:
+      NotInverted: [0, "Output is not inverted"]
+      Inverted: [1, "Output is inverted"]
+    WINMODE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    INPSEL:
+      Inp0: [0, "COMP1_INP0 from PC0"]
+      Inp1: [1, "COMP1_INP1 from PC1"]
+      Inp2: [2, "COMP1_INP2 from PC2"]
+      Inp3: [3, "COMP1_INP3 from PC3"]
+      Inp4: [4, "COMP1_INP4 from PA0"]
+      Inp5: [5, "COMP1_INP5 from PA1"]
+      Inp6: [6, "COMP1_INP6 from PA2"]
+      Inp7: [7, "COMP1_INP7 from PA3"]
+      Inp8: [8, "COMP1_INP8 from PA4"]
+      Inp9: [9, "COMP1_INP9 from PA5"]
+      Inp10: [10, "COMP1_INP10 from PA6"]
+      Inp11: [11, "COMP1_INP11 from PA7"]
+      Inp12: [12, "COMP1_INP12 from PB4"]
+      Inp13: [13, "COMP1_INP13 from PB5"]
+      Inp14: [14, "COMP1_INP14 from PB6"]
+    INMSEL:
+      Inm0: [0, "COMP1_INM0 from PA0"]
+      Inm1: [1, "COMP1_INM1 from PA1"]
+      Inm2: [2, "COMP1_INM2 from PA2"]
+      Inm3: [3, "COMP1_INM3 from PA3"]
+      Inm4: [4, "COMP1_INM4 from PA4"]
+      Inm5: [5, "COMP1_INM5 from PA5"]
+      Inm6: [6, "COMP1_INM6 from PA6"]
+      Inm7: [7, "COMP1_INM7 from PA7"]
+      Inm8: [8, "COMP1_INM8 from PC4"]
+      Inm9: [9, "COMP1_INM9 from PC5"]
+      Inm11: [10, "COMP1_INM11 from resistor voltage divider"]
+      Inm12: [11, "COMP1_INM12 from TS_VIN"]
+      Inm13: [12, "COMP1_INM13 from VREF1P2"]
+      Inm14: [13, "COMP1_INM14 from VREFBUF"]
+      Inm15: [14, "COMP1_INM15 from OPA1_VIN"]
+    EN:
+      Disabled: [0, "Comparator 1 disabled"]
+      Enabled: [1, "Comparator 1 enabled"]
+
+  FR:
+    "FLTCNT?": [0, 0xffff]
+    "FLTEN?":
+      Disabled: [0, "Comparator digital filter disabled"]
+      Enabled: [1, "Comparator digital filter enabled"]
+
+COMP1:
+  CSR:
+    VCSEL:
+      Vcc: [0, "VCC"]
+      AdcRef: [1, "ADC reference voltage"]
+    VCDIV_EN:
+      Disabled: [0, "Voltage division not enabled"]
+      Enabled: [1, "Voltage division enabled"]
+    VCDIV: [0, 0x3f]

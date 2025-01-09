@@ -1,0 +1,146 @@
+LCD:
+  CR0:
+    CONTRAST: [0, 0xf]
+    BSEL:
+      Ext: [0, "External resistor mode, external circuitry required"]
+      IntMed: [2, " Internal resistive divider, medium power consumption mode"]
+      IntSm: [4, "Internal resistive voltage divider, small power consumption mode"]
+      IntHi: [6, "Internal resistive voltage divider, high power mode"]
+    DUTY:
+      Static: [0, "Static"]
+      Duty2: [1, "1/2 duty"]
+      Duty3: [2, "1/3 duty"]
+      Duty4: [3, "1/4 duty"]
+      Duty6: [5, "1/6 duty"]
+      Duty8: [7, "1/8 duty"]
+    BIAS:
+      Bias3: [0, "1/3 bias"]
+      Bias2: [1, "1/2 bias"]
+    LCDCLK:
+      Hz64: [0, "64 Hz"]
+      Hz128: [1, "128 Hz"]
+      Hz256: [2, "256 Hz"]
+      Hz512: [3, "512 Hz"]
+    EN:
+      Disabled: [0, "LCD disabled"]
+      Enabled: [1, "LCD enabled"]
+
+  CR1:
+    INTF:
+      NoInterrupt: [0, "No Interrupt"]
+      Interrupt: [1, "Interrupt"]
+    DMAEN:
+      Disabled: [0, "Disable LCD interrupt triggered DMA"]
+      Enabled: [1, "Enables LCD interrupt triggering DMA"]
+    IE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    MODE:
+      Mode0: [0, "Mode 0"]
+      Mode1: [1, "Mode 1"]
+    BLINKEN:
+      Disabled: [0, "LCD splash screen disabled"]
+      Enabled: [1, "LCD splash screen enabled"]
+    BLINKCNT: [0, 0x3f]
+
+  INTCLR:
+    INTF_CLR:
+      _W0C:
+        Clear: [0, "Clear flag"]
+
+  POEN0:
+    S31:
+    S30:
+    S29:
+    S28:
+    S27:
+    S26:
+    S25:
+    S24:
+    S23:
+    S22:
+    S21:
+    S20:
+    S19:
+    S18:
+    S17:
+    S16:
+    S15:
+    S14:
+    S13:
+    S12:
+    S11:
+    S10:
+    S9:
+    S8:
+    S7:
+    S6:
+    S5:
+    S4:
+    S3:
+    S2:
+    S1:
+    S0:
+
+  POEN1:
+    MUX:
+    C3:
+    C2:
+    C1:
+    C0:
+    S36C7:
+    S37C6:
+    S38C5:
+    S39C4:
+    S35:
+    S34:
+    S33:
+    S32:
+
+  RAM0:
+    D:
+
+  RAM1:
+    D:
+
+  RAM2:
+    D:
+
+  RAM3:
+    D:
+
+  RAM4:
+    D:
+
+  RAM5:
+    D:
+
+  RAM6:
+    D:
+
+  RAM7:
+    D:
+
+  RAM8:
+    D:
+
+  RAM9:
+    D:
+
+  RAM10:
+    D:
+
+  RAM11:
+    D:
+
+  RAM12:
+    D:
+
+  RAM13:
+    D:
+
+  RAM14:
+    D:
+
+  RAM15:
+    D:

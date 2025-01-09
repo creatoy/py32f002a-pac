@@ -20,6 +20,26 @@ def generate_device_page(device):
     template = env.get_template('makehtml.template.html')
     return template.render(device=device)
 
+def get_field_offset_width(ftag):
+    # Some svd files will specify a bitRange rather than
+    # bitOffset and bitWidth
+    if ftag.find('bitRange') != None:
+        frange = ftag.find('bitRange').text
+        parts = frange[1:-1].split(':')
+        end = int(parts[0], 0)
+        start = int(parts[1], 0)
+        foffset = start
+        fwidth = end - start + 1
+    else:
+        # some svd files will specify msb,lsb rather
+        # then bitOffset and bitWidth
+        if ftag.find('msb') != None:
+            foffset = int(ftag.find('lsb').text, 0)
+            fwidth = int(ftag.find('msb').text, 0) - foffset + 1
+        else:
+            foffset = int(ftag.find('bitOffset').text, 0)
+            fwidth = int(ftag.find('bitWidth').text, 0)
+    return (foffset, fwidth)
 
 def parse_device(svdfile):
     tree = ET.parse(svdfile)
@@ -55,8 +75,7 @@ def parse_device(svdfile):
                 register_fields_total += 1
                 fname = ftag.find('name').text
                 fdesc = ftag.find('description').text
-                foffset = int(ftag.find('bitOffset').text, 0)
-                fwidth = int(ftag.find('bitWidth').text, 0)
+                foffset, fwidth = get_field_offset_width(ftag)
                 enum = ftag.find('enumeratedValues')
                 if enum is not None:
                     register_fields_documented += 1

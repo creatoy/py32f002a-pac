@@ -31,7 +31,7 @@ cat > html/comparisons.html <<EOF
 
 <h1>Device families</h1>
 <ul>
-  <li><a href="py32f/index.html">PY32F</a></li>
+  <li><a href="py32f/py32f0/index.html">PY32F</a></li>
 </ul>
 </body>
 </html>

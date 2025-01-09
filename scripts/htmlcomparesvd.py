@@ -1,7 +1,7 @@
 import argparse
 import os.path
 import xml.etree.ElementTree as ET
-
+import re
 
 def iter_peripherals(tree):
     for ptag in tree.iter('peripheral'):
@@ -18,7 +18,29 @@ def iter_fields(rtag):
         yield ftag
 
 
+def get_field_offset_width(ftag):
+    # Some svd files will specify a bitRange rather than
+    # bitOffset and bitWidth
+    if ftag.find('bitRange') != None:
+        frange = ftag.find('bitRange').text
+        parts = frange[1:-1].split(':')
+        end = int(parts[0], 0)
+        start = int(parts[1], 0)
+        foffset = start
+        fwidth = end - start + 1
+    else:
+        # some svd files will specify msb,lsb rather
+        # then bitOffset and bitWidth
+        if ftag.find('msb') != None:
+            foffset = int(ftag.find('lsb').text, 0)
+            fwidth = int(ftag.find('msb').text, 0) - foffset + 1
+        else:
+            foffset = int(ftag.find('bitOffset').text, 0)
+            fwidth = int(ftag.find('bitWidth').text, 0)
+    return (foffset, fwidth)
+
 def parse(svdfile):
+    print('svdfile:',svdfile)
     tree = ET.parse(svdfile)
     peripherals = {}
     for ptag in iter_peripherals(tree):
@@ -34,10 +56,10 @@ def parse(svdfile):
             for ftag in iter_fields(rtag):
                 fname = ftag.find('name').text
                 print("\t\tfield: %s" % fname)
-                foffset = int(ftag.find('bitOffset').text, 0)
-                fwidth = int(ftag.find('bitWidth').text, 0)
-                fields[fname] = {"name": fname, "offset": foffset,
-                                 "width": fwidth}
+                foffset, fwidth = get_field_offset_width(ftag)
+
+                fields[fname] = {"name": fname, "offset": foffset, "width": fwidth}
+
             registers[rname] = {"name": rname, "offset": roffset,
                                 "fields": fields}
         peripherals[pname] = {"name": pname, "base": pbase,

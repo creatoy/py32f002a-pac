@@ -1,0 +1,4 @@
+APB_FZ2:
+  _modify:
+    DBG_TIM14_STOP:
+      name: DBG_TIMER14_STOP

@@ -39,3 +39,10 @@ py32f0:
     rm_url: https://www.puyasemi.com/download_path/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C/MCU%20%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/PY32F030%20Reference%20manual%20v1.3_EN.pdf
     members:
       - PY32F030
+  py32f040:
+    url: https://www.puyasemi.com/en/py32f040.html?tag=48#common
+    rm: PY32F040 Reference manual
+    rm_title: PY32F040 Reference manual
+    rm_url: https://www.puyasemi.com/download_path/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C/MCU/PY32F040_Reference_Manual_V0.2.pdf
+    members:
+      - PY32F040

@@ -20,7 +20,7 @@ VERSION = "0.2.0"
 SVD2RUST_VERSION = "0.28.0"
 
 CRATE_DOC_FEATURES = {
-    "py32f0": ["critical-section", "rt", "py32f002a", "py32f002b", "py32f003", "py32f030"]
+    "py32f0": ["critical-section", "rt", "py32f002a", "py32f002b", "py32f003", "py32f030", "py32f040"]
 }
 
 CRATE_DOC_TARGETS = {

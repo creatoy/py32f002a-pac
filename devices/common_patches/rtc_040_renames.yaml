@@ -1,0 +1,35 @@
+PRLH:
+  _modify:
+    PRL:
+      name: PRLH
+PRLL:
+  _modify:
+    PRL:
+      name: PRLL
+DIVH:
+  _modify:
+    DIV:
+      name: DIVH
+DIVL:
+  _modify:
+    DIV:
+      name: DIVL
+CNTH:
+  _modify:
+    RTC_CNT:
+      name: CNTH
+CNTL:
+  _modify:
+    RTC_CNT:
+      name: CNTL
+ALRH:
+  _modify:
+    RTC_ALR:
+      name: ALRH
+ALRL:
+  _modify:
+    RTC_ALR:
+      name: ALRL
+_modify:
+  BKP_RTCCR:
+    name: RTCCR

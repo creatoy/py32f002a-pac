@@ -1,0 +1,4 @@
+SR:
+  _modify:
+    OVER:
+      access: read-write
