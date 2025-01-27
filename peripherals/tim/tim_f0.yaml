@@ -1,8 +1,4 @@
 "TIM*":
-  "CCR?":
-    _modify:
-      "CCR?":
-        name: CCR
   CR1:
     ARPE:
       Disabled: [0, "TIMx_APRR register is not buffered"]

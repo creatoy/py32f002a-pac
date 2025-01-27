@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+
+ - Added array access to timer CCR registers
+ - Added py32f040 device
+ - `scripts/README.md` to show usage of scripts
+ - modified scripts to handle `bitRange` vs `bitOffset` and `bitWidth` usage in svd files
+
+### Changed
+
+ - Renamed field `DBG_TIM14_STOP` to `DBG_TIMER14_STOP` in `DBG` peripheral for py32f002b to make it consistent with other devices
+
+### Removed
+
+ - Removed renaming of timer CCR registers
+
+### Fixed
+
 ## v0.2.0
 
 ### Added

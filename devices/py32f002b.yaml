@@ -13,6 +13,10 @@ _svd: ../svd/py32f002b.svd
   _include:
     - common_patches/f002b_dbg.yaml
 
+"TIM*":
+  _include:
+    - common_patches/timer_ccr_reg_array.yaml
+
 _include:
  - ./common_patches/syscfg_f002b.yaml
  - ../peripherals/flash/flash_f002b.yaml
