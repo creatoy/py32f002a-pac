@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## v0.2.1 2025-01-28
 
 ### Added
 
@@ -19,9 +19,7 @@ All notable changes to this project will be documented in this file.
 
  - Removed renaming of timer CCR registers
 
-### Fixed
-
-## v0.2.0
+## v0.2.0 2024-12-28
 
 ### Added
 
@@ -36,11 +34,11 @@ All notable changes to this project will be documented in this file.
  - Updated form version from 0.10.0 to 0.12.1
  - Updated svdtools version from 0.3.0 to 0.3.14
 
-## v0.1.1
+## v0.1.1 2024-10-10
 
-## V0.1.0
+## V0.1.0 2024-09-27
 
-## v0.0.1
+## v0.0.1 2023-06-10
 
  - Original Release
 
