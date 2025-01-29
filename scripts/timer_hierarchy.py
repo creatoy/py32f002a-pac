@@ -1,20 +1,37 @@
 import argparse
 import xml.etree.ElementTree as ET
 import pprint
+import re
 
 from collections import defaultdict
 
 from svdtools import patch
 
 
+def iter_peripherals(tree, pspec):
+    for ptag in tree.iter('peripheral'):
+        if re.match(pspec, ptag.find('name').text):
+            yield ptag
+
+
+def iter_registers(ptag):
+    for rtag in ptag.iter('register'):
+        yield rtag
+
+
+def iter_fields(rtag):
+    for ftag in rtag.iter('field'):
+        yield ftag
+
+
 def main(svdfile):
     tree = ET.parse(svdfile)
     field_tims = defaultdict(set)
-    for ptag in patch.iter_peripherals(tree, "TIM*"):
+    for ptag in iter_peripherals(tree, "TIM*"):
         pname = ptag.find('name').text
-        for rtag in patch.iter_registers(ptag, "*"):
+        for rtag in iter_registers(ptag):
             rname = rtag.find('name').text
-            for ftag in patch.iter_fields(rtag, "*"):
+            for ftag in iter_fields(rtag):
                 fname = ftag.find('name').text
                 rfname = "{}.{}".format(rname, fname)
                 field_tims[rfname].add(pname)

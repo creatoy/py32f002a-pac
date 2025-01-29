@@ -1,0 +1,10 @@
+BRR:
+  _modify:
+    DIV_FRACTION:
+      name: DIV_Fraction
+    DIV_MANTISSA:
+      name: DIV_Mantissa
+CR3:
+  _modify:
+    ABRMODE:
+      name: ABRMOD

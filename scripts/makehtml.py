@@ -21,6 +21,27 @@ from jinja2 import Environment, PackageLoader
 
 env = Environment(loader=PackageLoader('makehtml', ''))
 
+def get_field_offset_width(ftag):
+    # Some svd files will specify a bitRange rather than
+    # bitOffset and bitWidth
+    frange = get_string(ftag, 'bitRange')
+    if frange:
+        parts = frange[1:-1].split(':')
+        end = int(parts[0], 0)
+        start = int(parts[1], 0)
+        foffset = start
+        fwidth = end - start + 1
+    else:
+        # some svd files will specify msb,lsb rather
+        # then bitOffset and bitWidth
+        msb = get_string(ftag, 'msb')
+        if msb:
+            foffset = get_int(ftag, 'lsb')
+            fwidth = get_int(ftag, 'msb') - foffset + 1
+        else:
+            foffset = get_int(ftag, 'bitOffset')
+            fwidth = get_int(ftag, 'bitWidth')
+    return (foffset, fwidth)
 
 def generate_index_page(devices):
     print("Generating Index")
@@ -166,18 +187,7 @@ def parse_register(rtag):
         register_fields_total += 1
         fname = get_string(ftag, 'name')
         fdesc = get_string(ftag, 'description')
-        # Some svd files will specify a bitRange rather than
-        # bitOffset and bitWidth
-        frange = get_string(ftag, 'bitRange')
-        if frange:
-            parts = frange[1:-1].split(':')
-            end = int(parts[0], 0)
-            start = int(parts[1], 0)
-            foffset = start
-            fwidth = end - start + 1
-        else:
-            foffset = get_int(ftag, 'bitOffset')
-            fwidth = get_int(ftag, 'bitWidth')
+        foffset, fwidth = get_field_offset_width(ftag)
         faccs = get_string(ftag, 'access') or raccs
         enum = ftag.find('enumeratedValues')
         wc = ftag.find('writeConstraint')

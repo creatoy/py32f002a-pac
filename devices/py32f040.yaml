@@ -1,0 +1,48 @@
+_svd: ../svd/py32f040.svd
+
+"SPI*":
+  _include:
+    - common_patches/spi_dr8.yaml
+
+"USART*":
+  _include:
+    - common_patches/usart_dr8.yaml
+    - common_patches/usart_f040_rename.yaml
+
+"DMA, DMA[12]":
+  _include:
+    - common_patches/dma_cluster.yaml
+
+"FLASH":
+  _include:
+    - common_patches/flash_f040_rename.yaml
+
+"ADC":
+  _include:
+    - common_patches/adc_rw.yaml
+
+"RTC":
+  _include:
+    - common_patches/rtc_040_renames.yaml
+
+_include:
+ - ../peripherals/flash/flash_f040.yaml
+ - ../peripherals/pwr/pwr_f040.yaml
+ - ../peripherals/rcc/rcc_f040.yaml
+ - ../peripherals/gpio/gpio_f0.yaml
+ - ../peripherals/syscfg/syscfg_f040.yaml
+ - ../peripherals/dma/dma_f0.yaml
+ - ../peripherals/exti/exti_f0.yaml
+ - ../peripherals/crc/crc_f0.yaml
+ - ../peripherals/adc/adc_f040.yaml
+ - ../peripherals/comp/comp_f040.yaml
+ - ../peripherals/lcd/lcd_f0.yaml
+ - ../peripherals/tim/tim_f040.yaml
+ - ../peripherals/lptim/lptim_f0.yaml
+ - ../peripherals/iwdg/iwdg_f0.yaml
+ - ../peripherals/wwdg/wwdg_f0.yaml
+ - ../peripherals/rtc/rtc_f0.yaml
+ - ../peripherals/i2c/i2c_f040.yaml
+ - ../peripherals/usart/usart_f0.yaml
+ - ../peripherals/spi/spi_f040.yaml
+ - ../peripherals/dbg/dbg_f0.yaml

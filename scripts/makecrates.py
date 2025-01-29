@@ -16,11 +16,11 @@ import argparse
 import re
 import yaml
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 SVD2RUST_VERSION = "0.28.0"
 
 CRATE_DOC_FEATURES = {
-    "py32f0": ["critical-section", "rt", "py32f002a", "py32f002b", "py32f003", "py32f030"]
+    "py32f0": ["critical-section", "rt", "py32f002a", "py32f002b", "py32f003", "py32f030", "py32f040"]
 }
 
 CRATE_DOC_TARGETS = {
@@ -32,7 +32,7 @@ CARGO_TOML_TPL = """\
 edition = "2021"
 name = "{crate}"
 version = "{version}"
-authors = ["creatoy <creatoy@yeah.net>", "py32-rs Contributors"]
+authors = ["creatoy <creatoy@yeah.net>", "Greg Green <ggreen@bit-builder.com>", "py32-rs Contributors"]
 description = "Device support crates for {family} devices"
 repository = "https://github.com/py32-rust/py32-rs"
 readme = "README.md"
